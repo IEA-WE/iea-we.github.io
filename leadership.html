@@ -83,6 +83,13 @@
     }
 
 
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+
     .logo img {
       width: 145px;
       height: auto;
@@ -642,32 +649,47 @@
       }
 
 
-      /* MOBILE NAVIGATION FIX — SAME AS INDEX */
+      /* MOBILE NAVIGATION — SAME AS INDEX */
 
       .nav {
         min-height: 70px;
-        gap: 6px;
+        gap: 12px;
+      }
+
+
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
       }
 
 
       .logo img {
-        width: 105px;
+        width: 145px;
       }
 
 
       nav {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        gap: 6px;
-        flex-wrap: nowrap;
+        gap: 18px;
+        overflow-x: auto;
         white-space: nowrap;
-        flex: 1;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: calc(100vw - 170px);
+        flex-shrink: 1;
+      }
+
+
+      nav::-webkit-scrollbar {
+        display: none;
       }
 
 
       nav a {
-        font-size: 7px;
+        flex-shrink: 0;
+        font-size: 11px;
         font-weight: 600;
         white-space: nowrap;
       }
@@ -792,11 +814,11 @@
 
 
       <nav>
-        <a href="index.html">Home</a>
         <a href="articles.html">Amplifying Voices</a>
         <a href="articles.html#archive">Latest Articles</a>
         <a href="reports.html">Reports</a>
         <a href="welac.html">WELAC</a>
+        <a href="leadership.html">Team</a>
         <a href="about.html">About</a>
       </nav>
 
