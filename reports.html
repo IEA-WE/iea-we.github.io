@@ -91,6 +91,7 @@
       font-weight: 600;
       color: var(--text);
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -817,7 +818,7 @@
 
 
     /* =========================
-       MOBILE
+       TABLET
     ========================= */
 
     @media (max-width: 1000px) {
@@ -888,18 +889,55 @@
     }
 
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 600px) {
 
       .container {
         width: 88%;
       }
 
-      nav {
-        display: none;
+      /* Mobile navigation stays visible */
+      .nav {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 0 12px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
       }
 
       .logo img {
         width: 150px;
+      }
+
+      nav {
+        display: flex;
+        width: 100%;
+        gap: 22px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 2px 0 5px;
+      }
+
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      nav a {
+        flex: 0 0 auto;
+        font-size: 12px;
       }
 
       .hero {
@@ -996,12 +1034,12 @@
       </a>
 
       <nav>
-      <a href="index.html">Home</a>
-      <a href="articles.html">Amplifying Voices</a>
-      <a href="articles.html#archive">Latest Articles</a>
-      <a href="welac.html">WELAC</a>
-      <a href="leadership.html">Team</a>
-      <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+        <a href="articles.html">Amplifying Voices</a>
+        <a href="articles.html#archive">Latest Articles</a>
+        <a href="welac.html">WELAC</a>
+        <a href="leadership.html">Team</a>
+        <a href="about.html">About</a>
       </nav>
 
     </div>
@@ -2055,24 +2093,25 @@
 
           <div class="footer-links">
 
-          <a href="articles.html">
-            Amplifying Voices
-          </a>
+            <a href="articles.html">
+              Amplifying Voices
+            </a>
 
-          <a href="leadership.html">
-            Team
-          </a>
+            <a href="leadership.html">
+              Team
+            </a>
 
-          <a href="https://iea-we.github.io/articles.html#archive">Latest Articles</a>
+            <a href="https://iea-we.github.io/articles.html#archive">
+              Latest Articles
+            </a>
 
+            <a href="reports.html">
+              Reports
+            </a>
 
-          <a href="reports.html">
-            Reports
-          </a>
-
-          <a href="welac.html">
-            WELAC
-          </a>
+            <a href="welac.html">
+              WELAC
+            </a>
 
           </div>
 
