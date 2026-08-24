@@ -94,6 +94,7 @@
       font-weight: 600;
       color: var(--text);
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -627,12 +628,39 @@
         width: 88%;
       }
 
-      nav {
-        display: none;
+      /* Mobile navigation */
+      .nav {
+        min-height: 78px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 0;
       }
 
       .logo img {
         width: 155px;
+      }
+
+      nav {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 18px;
+        padding-bottom: 3px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      nav a {
+        font-size: 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
 
       .hero h1 {
@@ -1211,7 +1239,6 @@
           </a>
 
           <a href="https://iea-we.github.io/articles.html#archive">Latest Articles</a>
-
 
           <a href="reports.html">
             Reports
