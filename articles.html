@@ -1008,9 +1008,46 @@
 
       }
 
+      /* MOBILE NAVIGATION FIX */
+
+      .nav {
+
+        gap: 15px;
+        min-width: 0;
+
+      }
+
+      .logo {
+
+        flex-shrink: 0;
+
+      }
+
       nav {
 
+        display: flex;
+        gap: 18px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        flex: 1;
+        min-width: 0;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+      }
+
+      nav::-webkit-scrollbar {
+
         display: none;
+
+      }
+
+      nav a {
+
+        flex-shrink: 0;
+        font-size: 12px;
 
       }
 
@@ -1047,6 +1084,8 @@
 
         padding: 35px 30px;
         max-width: 100%;
+        width: 88%;
+        transform: none;
 
       }
 
@@ -1191,13 +1230,27 @@
         <a href="index.html">
           Home
         </a>
-         <a href="https://iea-we.github.io/articles.html#archive">Latest Articles</a>
+
+        <a href="https://iea-we.github.io/articles.html#archive">
+          Latest Articles
+        </a>
+
         <a href="reports.html">
           Reports
         </a>
-         <a href="https://iea-we.github.io/welac.html">WELAC</a>
-          <a href="https://iea-we.github.io/leadership.html">Team</a>
-          <a href="about.html">About</a>
+
+        <a href="https://iea-we.github.io/welac.html">
+          WELAC
+        </a>
+
+        <a href="https://iea-we.github.io/leadership.html">
+          Team
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
       </nav>
 
     </div>
@@ -1819,25 +1872,25 @@
 
           <div class="footer-links">
 
-            
-          <a href="articles.html">
-            Amplifying Voices
-          </a>
+            <a href="articles.html">
+              Amplifying Voices
+            </a>
 
-          <a href="leadership.html">
-            Team
-          </a>
+            <a href="leadership.html">
+              Team
+            </a>
 
-          <a href="https://iea-we.github.io/articles.html#archive">Latest Articles</a>
+            <a href="https://iea-we.github.io/articles.html#archive">
+              Latest Articles
+            </a>
 
+            <a href="reports.html">
+              Reports
+            </a>
 
-          <a href="reports.html">
-            Reports
-          </a>
-
-          <a href="welac.html">
-            WELAC
-          </a>
+            <a href="welac.html">
+              WELAC
+            </a>
 
           </div>
 
@@ -1867,7 +1920,7 @@
 
       <div class="footer-bottom">
 
-       ©2023 International Economic Association — Women in Economics Initiative (IEA-WE)
+        ©2023 International Economic Association — Women in Economics Initiative (IEA-WE)
 
       </div>
 
