@@ -84,6 +84,7 @@
       display: flex;
       align-items: center;
       gap: 30px;
+      min-width: 0;
     }
 
     nav a {
@@ -899,9 +900,16 @@
         width: 88%;
       }
 
-      /* Mobile navigation stays visible */
+      /* Same mobile navigation fix as WELAC */
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+      }
+
       .nav {
         min-height: auto;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -913,15 +921,21 @@
       .logo {
         display: flex;
         align-items: center;
+        flex-shrink: 0;
       }
 
       .logo img {
         width: 150px;
+        height: auto;
       }
 
       nav {
         display: flex;
         width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: none;
+        align-items: center;
         gap: 22px;
         overflow-x: auto;
         overflow-y: hidden;
@@ -929,6 +943,7 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         padding: 2px 0 5px;
+        touch-action: pan-x;
       }
 
       nav::-webkit-scrollbar {
@@ -936,8 +951,10 @@
       }
 
       nav a {
+        display: inline-block;
         flex: 0 0 auto;
         font-size: 12px;
+        white-space: nowrap;
       }
 
       .hero {
@@ -1109,9 +1126,6 @@
 
         <div class="research-nav">
 
-
-          <!-- COMPONENT 01 -->
-
           <a href="#evidence" class="research-nav-card">
 
             <div class="research-nav-number">
@@ -1138,8 +1152,6 @@
           </a>
 
 
-          <!-- COMPONENT 02 -->
-
           <a href="#interventions" class="research-nav-card">
 
             <div class="research-nav-number">
@@ -1165,8 +1177,6 @@
 
           </a>
 
-
-          <!-- COMPONENT 03 -->
 
           <a href="#qualitative" class="research-nav-card">
 
@@ -1211,54 +1221,23 @@
         <div class="stats-grid">
 
           <div class="stat">
-
-            <div class="stat-number">
-              6
-            </div>
-
-            <div class="stat-label">
-              Country evidence papers
-            </div>
-
+            <div class="stat-number">6</div>
+            <div class="stat-label">Country evidence papers</div>
           </div>
 
-
           <div class="stat">
-
-            <div class="stat-number">
-              11
-            </div>
-
-            <div class="stat-label">
-              Intervention projects testing what works
-            </div>
-
+            <div class="stat-number">11</div>
+            <div class="stat-label">Intervention projects testing what works</div>
           </div>
 
-
           <div class="stat">
-
-            <div class="stat-number">
-              200+
-            </div>
-
-            <div class="stat-label">
-              In-depth interviews across the study countries
-            </div>
-
+            <div class="stat-number">200+</div>
+            <div class="stat-label">In-depth interviews across the study countries</div>
           </div>
 
-
           <div class="stat">
-
-            <div class="stat-number">
-              100+
-            </div>
-
-            <div class="stat-label">
-              Focus group discussions with students and faculty
-            </div>
-
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Focus group discussions with students and faculty</div>
           </div>
 
         </div>
@@ -1300,17 +1279,9 @@
 
           </div>
 
-
           <div class="evidence-count">
-
-            <strong>
-              6
-            </strong>
-
-            <span>
-              Evidence papers
-            </span>
-
+            <strong>6</strong>
+            <span>Evidence papers</span>
           </div>
 
         </div>
@@ -1319,13 +1290,9 @@
         <div class="paper-grid">
 
 
-          <!-- ARGENTINA -->
-
           <article class="paper-card">
 
-            <div class="paper-country">
-              Argentina
-            </div>
+            <div class="paper-country">Argentina</div>
 
             <h3>
               Examining the Situation of Women in the Economics Profession in Argentina
@@ -1365,25 +1332,18 @@
               networks.
             </p>
 
-            <a
-              class="paper-link"
+            <a class="paper-link"
               href="https://www.iea-world.org/wp-content/uploads/2025/01/Argentina-Final-version_Dec2024.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              target="_blank" rel="noopener noreferrer">
               Read the full paper →
             </a>
 
           </article>
 
 
-          <!-- COLOMBIA -->
-
           <article class="paper-card">
 
-            <div class="paper-country">
-              Colombia
-            </div>
+            <div class="paper-country">Colombia</div>
 
             <h3>
               Bridging the Gap: Gender Disparities in Colombia's Economics Profession
@@ -1410,25 +1370,18 @@
               research productivity.
             </p>
 
-            <a
-              class="paper-link"
+            <a class="paper-link"
               href="https://www.iea-world.org/wp-content/uploads/2025/02/IEA_final.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              target="_blank" rel="noopener noreferrer">
               Read the full paper →
             </a>
 
           </article>
 
 
-          <!-- GHANA -->
-
           <article class="paper-card">
 
-            <div class="paper-country">
-              Ghana
-            </div>
+            <div class="paper-country">Ghana</div>
 
             <h3>
               Evidence Papers on Women in Economics: A Case Study of Ghana
@@ -1461,25 +1414,18 @@
               progress through postgraduate education and academic careers.
             </p>
 
-            <a
-              class="paper-link"
+            <a class="paper-link"
               href="https://www.iea-world.org/wp-content/uploads/2025/08/Ghana-Women-in-Economics_June-2025-Final.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              target="_blank" rel="noopener noreferrer">
               Read the full paper →
             </a>
 
           </article>
 
 
-          <!-- INDIA -->
-
           <article class="paper-card">
 
-            <div class="paper-country">
-              India
-            </div>
+            <div class="paper-country">India</div>
 
             <h3>
               Women in Indian Economics Academia
@@ -1516,25 +1462,18 @@
               representation in senior academic positions.
             </p>
 
-            <a
-              class="paper-link"
+            <a class="paper-link"
               href="https://www.iea-world.org/wp-content/uploads/2025/08/Women-in-Indian-Economics-Academia_Dongre_Das_Singhal_April_30_2025-updated-July-7-2025-_-with-new-figures.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              target="_blank" rel="noopener noreferrer">
               Read the full paper →
             </a>
 
           </article>
 
 
-          <!-- MEXICO -->
-
           <article class="paper-card">
 
-            <div class="paper-country">
-              Mexico
-            </div>
+            <div class="paper-country">Mexico</div>
 
             <h3>
               Status of Women in Economics: Mexico
@@ -1561,25 +1500,18 @@
               academic production.
             </p>
 
-            <a
-              class="paper-link"
+            <a class="paper-link"
               href="https://www.iea-world.org/wp-content/uploads/2025/02/Arceo_2025_Staus-of-women-in-Economics-Mexico.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              target="_blank" rel="noopener noreferrer">
               Read the full paper →
             </a>
 
           </article>
 
 
-          <!-- SOUTH AFRICA -->
-
           <article class="paper-card">
 
-            <div class="paper-country">
-              South Africa
-            </div>
+            <div class="paper-country">South Africa</div>
 
             <h3>
               Women in Economics in South Africa
@@ -1612,12 +1544,9 @@
               leadership.
             </p>
 
-            <a
-              class="paper-link"
+            <a class="paper-link"
               href="https://www.iea-world.org/wp-content/uploads/2025/02/IEA_report_south_africa_v02122024.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              target="_blank" rel="noopener noreferrer">
               Read the full paper →
             </a>
 
@@ -1652,7 +1581,6 @@
 
           </div>
 
-
           <div class="dissemination-copy">
 
             <p>
@@ -1675,12 +1603,9 @@
               policymakers and wider audiences beyond academia.
             </p>
 
-            <a
-              class="dissemination-link"
+            <a class="dissemination-link"
               href="https://voxdev.org/topic/labour-markets/womens-status-economics-evidence-africa-asia-and-latin-america"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+              target="_blank" rel="noopener noreferrer">
               Read the VoxDev article →
             </a>
 
@@ -1743,169 +1668,70 @@
 
         <div class="intervention-grid">
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              01
-            </div>
-
+            <div class="intervention-number">01</div>
             <span>Argentina</span>
-
-            <p>
-              Hernán Ruffo
-            </p>
-
+            <p>Hernán Ruffo</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              02
-            </div>
-
+            <div class="intervention-number">02</div>
             <span>Brazil</span>
-
-            <p>
-              Bruna Borges, Fernanda Estevan, Kelly Santos
-            </p>
-
+            <p>Bruna Borges, Fernanda Estevan, Kelly Santos</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              03
-            </div>
-
+            <div class="intervention-number">03</div>
             <span>China</span>
-
-            <p>
-              Xianghong Shirley Wang
-            </p>
-
+            <p>Xianghong Shirley Wang</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              04
-            </div>
-
+            <div class="intervention-number">04</div>
             <span>Colombia</span>
-
-            <p>
-              Camila Galindo and Julia Seither
-            </p>
-
+            <p>Camila Galindo and Julia Seither</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              05
-            </div>
-
+            <div class="intervention-number">05</div>
             <span>Ghana</span>
-
-            <p>
-              Rebecca Nana Yaa Ayifah and Emmanuel Ayifah
-            </p>
-
+            <p>Rebecca Nana Yaa Ayifah and Emmanuel Ayifah</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              06
-            </div>
-
+            <div class="intervention-number">06</div>
             <span>India</span>
-
-            <p>
-              Anahita Karandikar
-            </p>
-
+            <p>Anahita Karandikar</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              07
-            </div>
-
+            <div class="intervention-number">07</div>
             <span>India</span>
-
-            <p>
-              Bharti Nandwani and Akanksha Aggarwal
-            </p>
-
+            <p>Bharti Nandwani and Akanksha Aggarwal</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              08
-            </div>
-
+            <div class="intervention-number">08</div>
             <span>Mexico</span>
-
-            <p>
-              Joana Chapa, Stanislao Maldonado, and Elvira Naranjo
-            </p>
-
+            <p>Joana Chapa, Stanislao Maldonado, and Elvira Naranjo</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              09
-            </div>
-
+            <div class="intervention-number">09</div>
             <span>Mexico</span>
-
-            <p>
-              Lucia Del Carpio, Emilio Gutierrez, Adrian Rubli
-            </p>
-
+            <p>Lucia Del Carpio, Emilio Gutierrez, Adrian Rubli</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              10
-            </div>
-
+            <div class="intervention-number">10</div>
             <span>South Africa</span>
-
-            <p>
-              Carike Claassen
-            </p>
-
+            <p>Carike Claassen</p>
           </div>
 
-
           <div class="intervention-item">
-
-            <div class="intervention-number">
-              11
-            </div>
-
+            <div class="intervention-number">11</div>
             <span>South Africa</span>
-
-            <p>
-              Janine Jantjies
-            </p>
-
+            <p>Janine Jantjies</p>
           </div>
 
         </div>
@@ -1924,7 +1750,6 @@
       <div class="container">
 
         <div class="qualitative-grid">
-
 
           <div>
 
@@ -1977,7 +1802,6 @@
 
 
             <div class="qual-facts">
-
 
               <div class="qual-fact">
 
@@ -2070,7 +1894,6 @@
     <div class="container">
 
       <div class="footer-grid">
-
 
         <div>
 
