@@ -1,2634 +1,2426 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>IEA-WE | International Economic Association Women in Economics</title>
-
-  <style>
-
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
-
-    :root {
-      --navy: #0b3568;
-      --dark-blue: #102b52;
-      --blue: #1557a6;
-      --red: #c92f45;
-      --light-blue: #eef4fc;
-      --off-white: #faf9f5;
-      --white: #ffffff;
-      --text: #17263b;
-      --muted: #536174;
-      --line: #dce3ec;
-      --soft-pink: #f8e5e8;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "DM Sans", Arial, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1180px, 90%);
-      margin: 0 auto;
-    }
-
-
-    /* =========================
-       NAVIGATION
-    ========================= */
-
-    header {
-      background: var(--white);
-      border-bottom: 1px solid #edf0f4;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav {
-      min-height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .logo img {
-      width: 190px;
-      height: auto;
-      display: block;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-    }
-
-    nav a {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--red);
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      background: var(--white);
-      color: var(--text);
-      min-height: 600px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("writers_photo.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: 0;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.97) 0%,
-        rgba(255, 255, 255, 0.94) 25%,
-        rgba(255, 255, 255, 0.82) 45%,
-        rgba(255, 255, 255, 0.55) 60%,
-        rgba(255, 255, 255, 0.20) 78%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 90px 0;
-    }
-
-    .eyebrow {
-      color: var(--navy);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 28px;
-    }
-
-    .eyebrow a {
-      color: var(--navy);
-      transition: color 0.2s ease;
-    }
-
-    .eyebrow a:hover {
-      color: var(--red);
-    }
-
-    .hero h1 {
-      font-family: "Playfair Display", Georgia, serif;
-      color: var(--navy);
-      font-size: clamp(60px, 8vw, 108px);
-      line-height: 0.98;
-      font-weight: 500;
-      letter-spacing: -4px;
-      max-width: 850px;
-      margin-bottom: 38px;
-    }
-
-    .hero h1 span {
-      color: var(--red);
-      display: block;
-    }
-
-    .hero-intro {
-      max-width: 780px;
-      font-size: 20px;
-      line-height: 1.75;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 4px;
-      font-weight: 700;
-      transition: all 0.2s ease;
-    }
-
-    .button-primary {
-      background: var(--red);
-      color: white;
-    }
-
-    .button-primary:hover {
-      transform: translateY(-2px);
-      opacity: 0.92;
-    }
-
-    .button-secondary {
-      border: 1px solid var(--navy);
-      color: var(--navy);
-      background: rgba(255, 255, 255, 0.75);
-    }
-
-    .button-secondary:hover {
-      background: var(--navy);
-      color: white;
-    }
-
-
-    /* =========================================================
-       LATEST FROM IEA-WE
-    ========================================================= */
-
-    .latest-feed {
-      position: relative;
-      overflow: hidden;
-      padding: 55px 0 48px;
-      background:
-        radial-gradient(circle at 92% 15%, rgba(201, 47, 69, 0.09) 0 150px, transparent 151px),
-        radial-gradient(circle at 8% 90%, rgba(21, 87, 166, 0.07) 0 180px, transparent 181px),
-        var(--off-white);
-      border-top: 1px solid #f0ece7;
-      border-bottom: 1px solid #eee9e3;
-    }
-
-    .latest-feed::before {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: var(--soft-pink);
-      top: -150px;
-      left: 38%;
-      opacity: 0.65;
-      pointer-events: none;
-    }
-
-    .latest-top {
-      position: relative;
-      z-index: 2;
-      width: min(1180px, 90%);
-      margin: 0 auto 25px;
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 40px;
-      align-items: end;
-    }
-
-    .latest-top h2 {
-      font-family: "Playfair Display", Georgia, serif;
-      color: var(--navy);
-      font-size: clamp(34px, 4vw, 52px);
-      line-height: 1.04;
-      font-weight: 500;
-      letter-spacing: -1.4px;
-      max-width: 650px;
-    }
-
-    .latest-top p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      max-width: 360px;
-      justify-self: end;
-    }
-
-    .latest-label {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .feed-window {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      z-index: 2;
-    }
-
-    .feed-track {
-      display: flex;
-      width: max-content;
-      gap: 18px;
-      animation: latestScroll 38s linear infinite;
-      padding: 5px 0 10px;
-    }
-
-    .feed-window:hover .feed-track {
-      animation-play-state: paused;
-    }
-
-    .latest-card {
-      width: 300px;
-      height: 300px;
-      flex: 0 0 300px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      padding: 24px;
-      background: var(--white);
-      border: 1px solid #e8e3de;
-      box-shadow: 0 10px 28px rgba(23, 38, 59, 0.06);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .latest-card::after {
-      content: "";
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      right: -42px;
-      top: -42px;
-      background: var(--soft-pink);
-      opacity: 0.75;
-      z-index: 0;
-    }
-
-    .latest-card:nth-child(2n)::after {
-      background: var(--light-blue);
-    }
-
-    .latest-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 38px rgba(23, 38, 59, 0.11);
-    }
-
-    .latest-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .latest-meta {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 1.3px;
-      font-size: 10px;
-      line-height: 1.4;
-      font-weight: 700;
-      margin-bottom: 13px;
-      min-height: 28px;
-    }
-
-    .latest-card h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      color: var(--navy);
-      font-size: 24px;
-      line-height: 1.16;
-      font-weight: 600;
-      margin-bottom: 12px;
-      max-width: 270px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      overflow: hidden;
-    }
-
-    .latest-card p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-      max-width: 265px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 4;
-      overflow: hidden;
-    }
-
-    .latest-link {
-      margin-top: auto;
-      padding-top: 14px;
-      color: var(--red);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .latest-link span {
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
-
-    .latest-card:hover .latest-link span {
-      transform: translateX(5px);
-    }
-
-    .video-card {
-      background: linear-gradient(145deg, #fff7f7, #f8e7ea);
-    }
-
-    .video-card .play-button {
-      position: absolute;
-      right: 22px;
-      bottom: 22px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--red);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      padding-left: 3px;
-      box-shadow: 0 7px 18px rgba(201, 47, 69, 0.22);
-      transition: transform 0.2s ease;
-      z-index: 3;
-    }
-
-    .video-card:hover .play-button {
-      transform: scale(1.08);
-    }
-
-    .feed-note {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      margin-top: 14px;
-      color: #7a8798;
-      font-size: 11px;
-    }
-
-    @keyframes latestScroll {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-
-    /* =========================================================
-       COMPACT CONTENT SECTIONS
-    ========================================================= */
-
-    .compact-sections {
-      background: var(--white);
-    }
-
-    .compact-section {
-      border-bottom: 1px solid var(--line);
-      background: var(--white);
-    }
-
-    .compact-section:nth-child(even) {
-      background: var(--light-blue);
-    }
-
-    .compact-trigger {
-      width: min(1180px, 90%);
-      margin: 0 auto;
-      min-height: 105px;
-      display: grid;
-      grid-template-columns: 80px 1fr 40px;
-      align-items: center;
-      gap: 25px;
-      cursor: default;
-      transition: min-height 0.8s ease;
-    }
-
-    .compact-number {
-      color: var(--red);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    /* 01–07 TITLES — NAVY WITH RED HOVER */
-
-    .compact-title {
-      font-family: "Playfair Display", Georgia, serif;
-      color: var(--navy);
-      font-size: clamp(30px, 4vw, 36px);
-      line-height: 1.1;
-      font-weight: 500;
-      letter-spacing: -1px;
-      transition: color 0.25s ease;
-    }
-
-    .compact-section:hover .compact-title,
-    .compact-section:focus-within .compact-title {
-      color: var(--red);
-    }
-
-    .compact-arrow {
-      color: var(--red);
-      font-size: 24px;
-      text-align: right;
-      transition: transform 0.7s ease;
-    }
-
-    .compact-content {
-      width: min(1180px, 90%);
-      margin: 0 auto;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition:
-        max-height 0.9s ease,
-        opacity 0.6s ease,
-        padding 0.7s ease;
-    }
-
-    .compact-section:hover .compact-content,
-    .compact-section:focus-within .compact-content {
-      max-height: 1000px;
-      opacity: 1;
-      padding-bottom: 55px;
-    }
-
-    .compact-section:hover .compact-trigger,
-    .compact-section:focus-within .compact-trigger {
-      min-height: 120px;
-    }
-
-    .compact-section:hover .compact-arrow,
-    .compact-section:focus-within .compact-arrow {
-      transform: rotate(90deg);
-    }
-
-
-    /* =========================
-       EXPANDED SECTION HEADINGS
-    ========================= */
-
-    .why-content h3,
-    .amplifying-copy h3,
-    .articles-intro h3,
-    .reports-content h3,
-    .about-content h3,
-    .leadership-intro h3 {
-      color: var(--navy);
-    }
-
-
-    /* =========================
-       WHY THIS MATTERS
-    ========================= */
-
-    .why-content {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 80px;
-      align-items: start;
-      padding-top: 5px;
-    }
-
-    .why-content h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 32px;
-      line-height: 1.2;
-      font-weight: 500;
-    }
-
-    .why-copy {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .why-copy p {
-      margin-bottom: 20px;
-    }
-
-    .why-highlight {
-      border-top: 2px solid var(--red);
-      padding-top: 20px;
-      margin-top: 25px;
-    }
-
-    .why-highlight strong {
-      display: block;
-      color: var(--navy);
-      font-size: 19px;
-      margin-bottom: 7px;
-    }
-
-    .community {
-      margin-top: 30px;
-      padding: 24px 28px;
-      background: var(--white);
-      border-left: 5px solid var(--red);
-    }
-
-    .community strong {
-      color: var(--navy);
-      font-size: 18px;
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .community span {
-      color: var(--muted);
-    }
-
-
-    /* =========================
-       OUR WORK
-    ========================= */
-
-    .work-content {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .work-card {
-      border: 1px solid var(--line);
-      background: var(--white);
-      padding: 25px;
-      min-height: 310px;
-      position: relative;
-    }
-
-    .work-number {
-      color: var(--red);
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 1.4;
-      margin-bottom: 17px;
-    }
-
-    .work-card h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      color: var(--navy);
-      font-size: 25px;
-      line-height: 1.2;
-      margin-bottom: 15px;
-    }
-
-    .work-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.65;
-      margin-bottom: 10px;
-    }
-
-    .work-card a {
-      display: inline-block;
-      color: var(--red);
-      font-weight: 700;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
-
-    /* =========================
-       AMPLIFYING VOICES
-    ========================= */
-
-    .amplifying-content {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .amplifying-copy h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 34px;
-      line-height: 1.15;
-      font-weight: 500;
-      margin-bottom: 18px;
-    }
-
-    .amplifying-copy p {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .stat {
-      border-top: 1px solid #aebfd6;
-      padding-top: 16px;
-    }
-
-    .stat-number {
-      font-family: "Playfair Display", Georgia, serif;
-      color: var(--red);
-      font-size: 40px;
-      line-height: 1;
-      margin-bottom: 9px;
-    }
-
-    .stat-label {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.4;
-    }
-
-    .amplifying-button {
-      margin-top: 28px;
-    }
-
-
-    /* =========================
-       LATEST ARTICLES
-    ========================= */
-
-    .articles-content {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 55px;
-      align-items: start;
-    }
-
-    .articles-intro h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 34px;
-      line-height: 1.15;
-      font-weight: 500;
-      margin-bottom: 15px;
-    }
-
-    .articles-intro p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .article-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .article-card {
-      background: var(--light-blue);
-      overflow: hidden;
-    }
-
-    .article-content {
-      padding: 23px;
-    }
-
-    .article-meta {
-      color: var(--red);
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .article-card h3 {
-      color: var(--navy);
-      font-size: 18px;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-
-    .article-card p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .read-more {
-      display: inline-block;
-      margin-top: 15px;
-      color: var(--red);
-      font-weight: 700;
-      font-size: 13px;
-    }
-
-
-    /* =========================
-       REPORTS
-    ========================= */
-
-    .reports-content {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .reports-content h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 36px;
-      line-height: 1.15;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-
-    .reports-content p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .report-side {
-      border-left: 4px solid var(--red);
-      padding-left: 28px;
-    }
-
-    .report-side strong {
-      color: var(--navy);
-      font-size: 18px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .about-content h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 35px;
-      line-height: 1.15;
-      font-weight: 500;
-    }
-
-    .about-copy {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .about-copy p {
-      margin-bottom: 18px;
-    }
-
-
-    /* =========================
-       TEAM
-    ========================= */
-
-    .leadership-content {
-      background: var(--white);
-      padding: 0;
-    }
-
-    .leadership-intro {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 70px;
-      align-items: start;
-      margin-bottom: 30px;
-    }
-
-    .leadership-intro h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 34px;
-      line-height: 1.15;
-      font-weight: 500;
-    }
-
-    .leadership-intro p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .leadership-title {
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin: 20px 0 10px;
-    }
-
-    .people-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .person {
-      background: var(--white);
-      padding: 15px 18px;
-      border-top: 3px solid transparent;
-      transition:
-        border-color 0.3s ease,
-        transform 0.3s ease;
-    }
-
-    .person:hover {
-      border-top-color: var(--red);
-      transform: translateY(-2px);
-    }
-
-    .person h4 {
-      color: var(--navy);
-      font-size: 16px;
-      margin-bottom: 3px;
-    }
-
-    .person p {
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.4;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: var(--dark-blue);
-      color: white;
-      padding: 55px 0;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 50px;
-    }
-
-    .footer-brand {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      color: #cbd5e4;
-      font-size: 14px;
-      max-width: 500px;
-    }
-
-    footer h4 {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: 12px;
-      margin-bottom: 15px;
-    }
-
-    .footer-links a {
-      display: block;
-      color: #e5eaf2;
-      font-size: 14px;
-      margin-bottom: 7px;
-    }
-
-    .footer-links a:hover {
-      color: var(--red);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #385171;
-      margin-top: 45px;
-      padding-top: 22px;
-      color: #aebbd0;
-      font-size: 12px;
-    }
-
-
-    /* =========================
-       FLOATING IEA CONGRESS VIDEO
-    ========================= */
-
-    .floating-video {
-      position: fixed;
-      right: 28px;
-      bottom: 28px;
-      z-index: 999;
-
-      display: flex;
-      align-items: center;
-      gap: 13px;
-
-      background: var(--dark-blue);
-      color: var(--white);
-
-      padding: 14px 18px 14px 14px;
-
-      border-radius: 4px;
-
-      box-shadow: 0 8px 30px rgba(16, 43, 82, 0.22);
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .floating-video:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(16, 43, 82, 0.3);
-    }
-
-    .floating-video-icon {
-      width: 38px;
-      height: 38px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--red);
-      color: white;
-
-      font-size: 13px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .floating-video-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.3;
-    }
-
-    .floating-video-text strong {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .floating-video-text small {
-      color: #cbd5e4;
-      font-size: 11px;
-      margin-top: 3px;
-    }
-
-    .floating-video-close {
-      color: #9eacc0;
-      font-size: 18px;
-      line-height: 1;
-      margin-left: 5px;
-    }
-
-    .floating-video:hover .floating-video-close {
-      color: white;
-    }
-
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 900px) {
-
-      .nav {
-        min-height: 78px;
-      }
-
-      .logo img {
-        width: 165px;
-      }
-
-      nav {
-        gap: 15px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-content {
-        padding: 75px 0;
-      }
-
-      .hero h1 {
-        font-size: 58px;
-        letter-spacing: -2px;
-      }
-
-      .why-content,
-      .amplifying-content,
-      .articles-content,
-      .reports-content,
-      .about-content,
-      .leadership-intro {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .work-content {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .article-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .people-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .latest-top {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .latest-top p {
-        justify-self: start;
-        max-width: 600px;
-      }
-
-      .compact-trigger {
-        grid-template-columns: 55px 1fr 30px;
-      }
-
-      .compact-title {
-        font-size: 36px;
-      }
-
-      .compact-section:focus-within .compact-content {
-        max-height: 1500px;
-      }
-    }
-
-
-    @media (max-width: 600px) {
-
-      .container {
-        width: 88%;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .logo img {
-        width: 155px;
-      }
-
-      .hero {
-        background-position: center center;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-      }
-
-      .hero-intro {
-        font-size: 17px;
-      }
-
-      .latest-top {
-        width: 88%;
-      }
-
-      .latest-top h2 {
-        font-size: 38px;
-      }
-
-      .latest-card {
-        width: 270px;
-        flex-basis: 270px;
-        height: 295px;
-        padding: 22px;
-      }
-
-      .latest-card h3 {
-        font-size: 23px;
-      }
-
-      .feed-track {
-        gap: 14px;
-      }
-
-      .feed-note {
-        padding: 0 20px;
-      }
-
-      .compact-trigger {
-        width: 88%;
-        min-height: 90px;
-        grid-template-columns: 38px 1fr 25px;
-        gap: 14px;
-      }
-
-      .compact-section:hover .compact-trigger {
-        min-height: 100px;
-      }
-
-      .compact-content {
-        width: 88%;
-      }
-
-      .compact-title {
-        font-size: 29px;
-        letter-spacing: -0.5px;
-      }
-
-      .compact-number {
-        font-size: 11px;
-      }
-
-      .why-content h3,
-      .amplifying-copy h3,
-      .articles-intro h3,
-      .reports-content h3,
-      .about-content h3,
-      .leadership-intro h3 {
-        font-size: 29px;
-      }
-
-      .work-content {
-        grid-template-columns: 1fr;
-      }
-
-      .work-card {
-        min-height: auto;
-      }
-
-      .article-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .people-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .floating-video {
-        right: 15px;
-        bottom: 15px;
-        padding: 11px 13px 11px 11px;
-        max-width: calc(100% - 30px);
-      }
-
-      .floating-video-icon {
-        width: 34px;
-        height: 34px;
-      }
-
-      .floating-video-text strong {
-        font-size: 12px;
-      }
-
-      .floating-video-text small {
-        font-size: 10px;
-      }
-    }
-
-
-    @media (prefers-reduced-motion: reduce) {
-
-      .feed-track {
-        animation: none;
-      }
-
-      .compact-content,
-      .compact-trigger,
-      .compact-arrow,
-      .compact-title {
-        transition: none;
-      }
-
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEA-WE | International Economic Association Women in Economics</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+:root {
+  --navy:#0b3568;
+  --dark-blue:#102b52;
+  --blue:#1557a6;
+  --red:#c92f45;
+  --light-blue:#eef4fc;
+  --off-white:#faf9f5;
+  --white:#ffffff;
+  --text:#17263b;
+  --muted:#536174;
+  --line:#dce3ec;
+  --soft-pink:#f8e5e8;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family:"DM Sans",Arial,sans-serif;
+  color:var(--text);
+  background:var(--white);
+  line-height:1.7;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+.container {
+  width:min(1180px,90%);
+  margin:0 auto;
+}
+
+/* NAVIGATION */
+
+header {
+  background:var(--white);
+  border-bottom:1px solid #edf0f4;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav {
+  min-height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+}
+
+.logo img {
+  width:190px;
+  height:auto;
+  display:block;
+}
+
+nav {
+  display:flex;
+  align-items:center;
+  gap:34px;
+}
+
+nav a {
+  font-size:15px;
+  font-weight:600;
+  color:var(--text);
+  transition:color .2s ease;
+}
+
+nav a:hover {
+  color:var(--red);
+}
+
+/* HERO */
+
+.hero {
+  background:var(--white);
+  color:var(--text);
+  min-height:600px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("writers_photo.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  z-index:0;
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(255,255,255,.97) 0%,
+    rgba(255,255,255,.94) 25%,
+    rgba(255,255,255,.82) 45%,
+    rgba(255,255,255,.55) 60%,
+    rgba(255,255,255,.20) 78%,
+    rgba(255,255,255,0) 100%
+  );
+  z-index:1;
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  padding:90px 0;
+}
+
+.eyebrow {
+  color:var(--navy);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:28px;
+}
+
+.eyebrow a {
+  color:var(--navy);
+  transition:color .2s ease;
+}
+
+.eyebrow a:hover {
+  color:var(--red);
+}
+
+.hero h1 {
+  font-family:"Playfair Display",Georgia,serif;
+  color:var(--navy);
+  font-size:clamp(60px,8vw,108px);
+  line-height:.98;
+  font-weight:500;
+  letter-spacing:-4px;
+  max-width:850px;
+  margin-bottom:38px;
+}
+
+.hero h1 span {
+  color:var(--red);
+  display:block;
+}
+
+.hero-intro {
+  max-width:780px;
+  font-size:20px;
+  line-height:1.75;
+  color:var(--muted);
+  margin-bottom:36px;
+}
+
+.buttons {
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.button {
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:4px;
+  font-weight:700;
+  transition:all .2s ease;
+}
+
+.button-primary {
+  background:var(--red);
+  color:white;
+}
+
+.button-primary:hover {
+  transform:translateY(-2px);
+  opacity:.92;
+}
+
+.button-secondary {
+  border:1px solid var(--navy);
+  color:var(--navy);
+  background:rgba(255,255,255,.75);
+}
+
+.button-secondary:hover {
+  background:var(--navy);
+  color:white;
+}
+
+/* LATEST FROM IEA-WE */
+
+.latest-feed {
+  position:relative;
+  overflow:hidden;
+  padding:55px 0 48px;
+  background:
+    radial-gradient(circle at 92% 15%,rgba(201,47,69,.09) 0 150px,transparent 151px),
+    radial-gradient(circle at 8% 90%,rgba(21,87,166,.07) 0 180px,transparent 181px),
+    var(--off-white);
+  border-top:1px solid #f0ece7;
+  border-bottom:1px solid #eee9e3;
+}
+
+.latest-feed::before {
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:var(--soft-pink);
+  top:-150px;
+  left:38%;
+  opacity:.65;
+  pointer-events:none;
+}
+
+.latest-top {
+  position:relative;
+  z-index:2;
+  width:min(1180px,90%);
+  margin:0 auto 25px;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:40px;
+  align-items:end;
+}
+
+.latest-top h2 {
+  font-family:"Playfair Display",Georgia,serif;
+  color:var(--navy);
+  font-size:clamp(34px,4vw,52px);
+  line-height:1.04;
+  font-weight:500;
+  letter-spacing:-1.4px;
+  max-width:650px;
+}
+
+.latest-top p {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  max-width:360px;
+  justify-self:end;
+}
+
+.latest-label {
+  color:var(--red);
+  text-transform:uppercase;
+  letter-spacing:2.5px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.feed-window {
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  z-index:2;
+}
+
+.feed-track {
+  display:flex;
+  width:max-content;
+  gap:18px;
+  animation:latestScroll 38s linear infinite;
+  padding:5px 0 10px;
+}
+
+.feed-window:hover .feed-track {
+  animation-play-state:paused;
+}
+
+.latest-card {
+  width:300px;
+  height:300px;
+  flex:0 0 300px;
+  position:relative;
+  overflow:hidden;
+  border-radius:8px;
+  padding:24px;
+  background:var(--white);
+  border:1px solid #e8e3de;
+  box-shadow:0 10px 28px rgba(23,38,59,.06);
+  display:flex;
+  flex-direction:column;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.latest-card::after {
+  content:"";
+  position:absolute;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  right:-42px;
+  top:-42px;
+  background:var(--soft-pink);
+  opacity:.75;
+  z-index:0;
+}
+
+.latest-card:nth-child(2n)::after {
+  background:var(--light-blue);
+}
+
+.latest-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 18px 38px rgba(23,38,59,.11);
+}
+
+.latest-card > * {
+  position:relative;
+  z-index:1;
+}
+
+.latest-meta {
+  color:var(--red);
+  text-transform:uppercase;
+  letter-spacing:1.3px;
+  font-size:10px;
+  line-height:1.4;
+  font-weight:700;
+  margin-bottom:13px;
+  min-height:28px;
+}
+
+.latest-card h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  color:var(--navy);
+  font-size:24px;
+  line-height:1.16;
+  font-weight:600;
+  margin-bottom:12px;
+  max-width:270px;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+
+.latest-card p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+  max-width:265px;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:4;
+  overflow:hidden;
+}
+
+.latest-link {
+  margin-top:auto;
+  padding-top:14px;
+  color:var(--red);
+  font-size:13px;
+  font-weight:700;
+}
+
+.latest-link span {
+  display:inline-block;
+  transition:transform .2s ease;
+}
+
+.latest-card:hover .latest-link span {
+  transform:translateX(5px);
+}
+
+.video-card {
+  background:linear-gradient(145deg,#fff7f7,#f8e7ea);
+}
+
+.video-card .play-button {
+  position:absolute;
+  right:22px;
+  bottom:22px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:var(--red);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  padding-left:3px;
+  box-shadow:0 7px 18px rgba(201,47,69,.22);
+  transition:transform .2s ease;
+  z-index:3;
+}
+
+.video-card:hover .play-button {
+  transform:scale(1.08);
+}
+
+.feed-note {
+  position:relative;
+  z-index:2;
+  text-align:center;
+  margin-top:14px;
+  color:#7a8798;
+  font-size:11px;
+}
+
+@keyframes latestScroll {
+  0% { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
+
+/* COMPACT CONTENT SECTIONS */
+
+.compact-sections {
+  background:var(--white);
+}
+
+.compact-section {
+  border-bottom:1px solid var(--line);
+  background:var(--white);
+}
+
+.compact-section:nth-child(even) {
+  background:var(--light-blue);
+}
+
+.compact-trigger {
+  width:min(1180px,90%);
+  margin:0 auto;
+  min-height:105px;
+  display:grid;
+  grid-template-columns:80px 1fr 40px;
+  align-items:center;
+  gap:25px;
+  cursor:default;
+  transition:min-height .8s ease;
+}
+
+.compact-number {
+  color:var(--red);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.compact-title {
+  font-family:"Playfair Display",Georgia,serif;
+  color:var(--navy);
+  font-size:clamp(30px,4vw,36px);
+  line-height:1.1;
+  font-weight:500;
+  letter-spacing:-1px;
+  transition:color .25s ease;
+}
+
+.compact-section:hover .compact-title,
+.compact-section:focus-within .compact-title {
+  color:var(--red);
+}
+
+.compact-arrow {
+  color:var(--red);
+  font-size:24px;
+  text-align:right;
+  transition:transform .7s ease;
+}
+
+.compact-content {
+  width:min(1180px,90%);
+  margin:0 auto;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height .9s ease,opacity .6s ease,padding .7s ease;
+}
+
+.compact-section:hover .compact-content,
+.compact-section:focus-within .compact-content {
+  max-height:1000px;
+  opacity:1;
+  padding-bottom:55px;
+}
+
+.compact-section:hover .compact-trigger,
+.compact-section:focus-within .compact-trigger {
+  min-height:120px;
+}
+
+.compact-section:hover .compact-arrow,
+.compact-section:focus-within .compact-arrow {
+  transform:rotate(90deg);
+}
+
+/* EXPANDED SECTION HEADINGS */
+
+.why-content h3,
+.amplifying-copy h3,
+.articles-intro h3,
+.reports-content h3,
+.about-content h3,
+.leadership-intro h3 {
+  color:var(--navy);
+}
+
+/* WHY THIS MATTERS */
+
+.why-content {
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:80px;
+  align-items:start;
+  padding-top:5px;
+}
+
+.why-content h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:32px;
+  line-height:1.2;
+  font-weight:500;
+}
+
+.why-copy {
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.8;
+}
+
+.why-copy p {
+  margin-bottom:20px;
+}
+
+.why-highlight {
+  border-top:2px solid var(--red);
+  padding-top:20px;
+  margin-top:25px;
+}
+
+.why-highlight strong {
+  display:block;
+  color:var(--navy);
+  font-size:19px;
+  margin-bottom:7px;
+}
+
+.community {
+  margin-top:30px;
+  padding:24px 28px;
+  background:var(--white);
+  border-left:5px solid var(--red);
+}
+
+.community strong {
+  color:var(--navy);
+  font-size:18px;
+  display:block;
+  margin-bottom:5px;
+}
+
+.community span {
+  color:var(--muted);
+}
+
+/* OUR WORK */
+
+.work-content {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.work-card {
+  border:1px solid var(--line);
+  background:var(--white);
+  padding:25px;
+  min-height:310px;
+  position:relative;
+}
+
+.work-number {
+  color:var(--red);
+  font-weight:700;
+  font-size:12px;
+  line-height:1.4;
+  margin-bottom:17px;
+}
+
+.work-card h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  color:var(--navy);
+  font-size:25px;
+  line-height:1.2;
+  margin-bottom:15px;
+}
+
+.work-card p {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.65;
+  margin-bottom:10px;
+}
+
+.work-card a {
+  display:inline-block;
+  color:var(--red);
+  font-weight:700;
+  margin-top:10px;
+  font-size:14px;
+}
+
+/* AMPLIFYING VOICES */
+
+.amplifying-content {
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.amplifying-copy h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:34px;
+  line-height:1.15;
+  font-weight:500;
+  margin-bottom:18px;
+}
+
+.amplifying-copy p {
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.8;
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.stat {
+  border-top:1px solid #aebfd6;
+  padding-top:16px;
+}
+
+.stat-number {
+  font-family:"Playfair Display",Georgia,serif;
+  color:var(--red);
+  font-size:40px;
+  line-height:1;
+  margin-bottom:9px;
+}
+
+.stat-label {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.4;
+}
+
+.amplifying-button {
+  margin-top:28px;
+}
+
+/* LATEST ARTICLES */
+
+.articles-content {
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:55px;
+  align-items:start;
+}
+
+.articles-intro h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:34px;
+  line-height:1.15;
+  font-weight:500;
+  margin-bottom:15px;
+}
+
+.articles-intro p {
+  color:var(--muted);
+  font-size:15px;
+}
+
+.article-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.article-card {
+  background:var(--light-blue);
+  overflow:hidden;
+}
+
+.article-content {
+  padding:23px;
+}
+
+.article-meta {
+  color:var(--red);
+  text-transform:uppercase;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:10px;
+}
+
+.article-card h3 {
+  color:var(--navy);
+  font-size:18px;
+  line-height:1.35;
+  margin-bottom:12px;
+}
+
+.article-card p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+
+.read-more {
+  display:inline-block;
+  margin-top:15px;
+  color:var(--red);
+  font-weight:700;
+  font-size:13px;
+}
+
+/* REPORTS */
+
+.reports-content {
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.reports-content h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:36px;
+  line-height:1.15;
+  font-weight:500;
+  margin-bottom:16px;
+}
+
+.reports-content p {
+  color:var(--muted);
+  font-size:16px;
+}
+
+.report-side {
+  border-left:4px solid var(--red);
+  padding-left:28px;
+}
+
+.report-side strong {
+  color:var(--navy);
+  font-size:18px;
+  display:block;
+  margin-bottom:8px;
+}
+
+/* ABOUT */
+
+.about-content {
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+
+.about-content h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:35px;
+  line-height:1.15;
+  font-weight:500;
+}
+
+.about-copy {
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.8;
+}
+
+.about-copy p {
+  margin-bottom:18px;
+}
+
+/* TEAM */
+
+.leadership-content {
+  background:var(--white);
+  padding:0;
+}
+
+.leadership-intro {
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:70px;
+  align-items:start;
+  margin-bottom:30px;
+}
+
+.leadership-intro h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:34px;
+  line-height:1.15;
+  font-weight:500;
+}
+
+.leadership-intro p {
+  color:var(--muted);
+  font-size:16px;
+}
+
+.leadership-title {
+  color:var(--navy);
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  margin:20px 0 10px;
+}
+
+.people-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.person {
+  background:var(--white);
+  padding:15px 18px;
+  border-top:3px solid transparent;
+  transition:border-color .3s ease,transform .3s ease;
+}
+
+.person:hover {
+  border-top-color:var(--red);
+  transform:translateY(-2px);
+}
+
+.person h4 {
+  color:var(--navy);
+  font-size:16px;
+  margin-bottom:3px;
+}
+
+.person p {
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.4;
+}
+
+/* FOOTER */
+
+footer {
+  background:var(--dark-blue);
+  color:white;
+  padding:55px 0;
+}
+
+.footer-grid {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:50px;
+}
+
+.footer-brand {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:32px;
+  margin-bottom:15px;
+}
+
+footer p {
+  color:#cbd5e4;
+  font-size:14px;
+  max-width:500px;
+}
+
+footer h4 {
+  color:var(--red);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.footer-links a {
+  display:block;
+  color:#e5eaf2;
+  font-size:14px;
+  margin-bottom:7px;
+}
+
+.footer-links a:hover {
+  color:var(--red);
+}
+
+.footer-bottom {
+  border-top:1px solid #385171;
+  margin-top:45px;
+  padding-top:22px;
+  color:#aebbd0;
+  font-size:12px;
+}
+
+/* FLOATING VIDEO */
+
+.floating-video {
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:white;
+  border:1px solid #e1e6ed;
+  box-shadow:0 10px 28px rgba(23,38,59,.15);
+  padding:12px 16px;
+  border-radius:6px;
+}
+
+.floating-video-icon {
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--red);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+}
+
+.floating-video-text {
+  display:flex;
+  flex-direction:column;
+}
+
+.floating-video-text strong {
+  color:var(--navy);
+  font-size:13px;
+  line-height:1.3;
+}
+
+.floating-video-text small {
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.3;
+}
+
+.floating-video-close {
+  color:#8b96a5;
+  font-size:18px;
+  margin-left:5px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:900px) {
+
+  .nav {
+    min-height:75px;
+  }
+
+  .logo img {
+    width:160px;
+  }
+
+  nav {
+    gap:20px;
+  }
+
+  nav a {
+    font-size:13px;
+  }
+
+  .hero {
+    min-height:560px;
+  }
+
+  .hero h1 {
+    font-size:clamp(52px,8vw,80px);
+  }
+
+  .latest-top {
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .latest-top p {
+    justify-self:start;
+  }
+
+  .why-content,
+  .amplifying-content,
+  .articles-content,
+  .reports-content,
+  .about-content,
+  .leadership-intro {
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .work-content {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .article-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .people-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:600px) {
+
+  .container {
+    width:90%;
+  }
+
+  /* MOBILE NAVIGATION FIX */
+
+  .nav {
+    min-height:70px;
+    gap:12px;
+  }
+
+  .logo img {
+    width:145px;
+  }
+
+  nav {
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    white-space:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    max-width:calc(100vw - 170px);
+    flex-shrink:1;
+  }
+
+  nav::-webkit-scrollbar {
+    display:none;
+  }
+
+  nav a {
+    flex-shrink:0;
+    font-size:11px;
+  }
+
+  .hero {
+    min-height:520px;
+  }
+
+  .hero::before {
+    background-position:center;
+  }
+
+  .hero-content {
+    padding:65px 0;
+  }
+
+  .eyebrow {
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:20px;
+  }
+
+  .hero h1 {
+    font-size:clamp(48px,14vw,70px);
+    letter-spacing:-2px;
+    margin-bottom:28px;
+  }
+
+  .hero-intro {
+    font-size:16px;
+    line-height:1.65;
+    margin-bottom:28px;
+  }
+
+  .buttons {
+    gap:10px;
+  }
+
+  .button {
+    padding:12px 18px;
+    font-size:13px;
+  }
+
+  .latest-feed {
+    padding:40px 0 38px;
+  }
+
+  .latest-top {
+    width:90%;
+  }
+
+  .latest-top h2 {
+    font-size:35px;
+  }
+
+  .latest-card {
+    width:270px;
+    height:280px;
+    flex-basis:270px;
+    padding:20px;
+  }
+
+  .compact-trigger {
+    width:88%;
+    min-height:90px;
+    grid-template-columns:45px 1fr 25px;
+    gap:15px;
+  }
+
+  .compact-section:hover .compact-trigger {
+    min-height:90px;
+  }
+
+  /* MOBILE SECTION EXPANSION */
+
+  .compact-section.active .compact-content {
+    max-height:5000px;
+    opacity:1;
+    padding-bottom:55px;
+  }
+
+  .compact-section.active .compact-trigger {
+    min-height:100px;
+  }
+
+  .compact-section.active .compact-arrow {
+    transform:rotate(90deg);
+  }
+
+  .compact-section.active .compact-title {
+    color:var(--red);
+  }
+
+  .compact-content {
+    width:88%;
+  }
+
+  .compact-title {
+    font-size:29px;
+    letter-spacing:-.5px;
+  }
+
+  .compact-number {
+    font-size:11px;
+  }
+
+  .why-content h3,
+  .amplifying-copy h3,
+  .articles-intro h3,
+  .reports-content h3,
+  .about-content h3,
+  .leadership-intro h3 {
+    font-size:29px;
+  }
+
+  .work-content {
+    grid-template-columns:1fr;
+  }
+
+  .work-card {
+    min-height:auto;
+  }
+
+  .stats {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .article-grid {
+    grid-template-columns:1fr;
+  }
+
+  .people-grid {
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .floating-video {
+    right:12px;
+    bottom:12px;
+    padding:10px 12px;
+    gap:8px;
+  }
+
+  .floating-video-icon {
+    width:30px;
+    height:30px;
+  }
+
+  .floating-video-text strong {
+    font-size:12px;
+  }
+
+  .floating-video-text small {
+    font-size:10px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+  .feed-track {
+    animation:none;
+  }
+
+  .compact-content,
+  .compact-trigger,
+  .compact-arrow,
+  .compact-title {
+    transition:none;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
-
 <header>
+<div class="container nav">
 
-  <div class="container nav">
+<a href="index.html" class="logo">
+<img src="logoWE.svg" alt="IEA-WE">
+</a>
 
-    <a href="index.html" class="logo">
-      <img src="logoWE.svg" alt="IEA-WE">
-    </a>
+<nav>
+<a href="articles.html">Amplifying Voices</a>
+<a href="articles.html#archive">Latest Articles</a>
+<a href="reports.html">Reports</a>
+<a href="welac.html">WELAC</a>
+<a href="leadership.html">Team</a>
+<a href="about.html">About</a>
+</nav>
 
-    <nav>
-      <a href="articles.html">Amplifying Voices</a>
-      <a href="articles.html#archive">Latest Articles</a>
-      <a href="reports.html">Reports</a>
-      <a href="welac.html">WELAC</a>
-      <a href="leadership.html">Team</a>
-      <a href="about.html">About</a>
-    </nav>
-
-  </div>
-
+</div>
 </header>
-
 
 <main>
 
-
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- HERO -->
 
 <section class="hero">
 
-  <div class="container">
+<div class="container">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-      <div class="eyebrow">
-        <a href="https://www.iea-world.org/" target="_blank" rel="noopener">
-          International Economic Association
-        </a>
-      </div>
+<div class="eyebrow">
+<a href="https://www.iea-world.org/" target="_blank" rel="noopener">
+International Economic Association
+</a>
+</div>
 
-      <h1>
-        Women shaping
-        <span>economics.</span>
-      </h1>
+<h1>
+Women shaping
+<span>economics.</span>
+</h1>
 
-      <p class="hero-intro">
-        IEA-WE is a global initiative strengthening the presence and influence
-        of women in the economics profession — through research, collaboration,
-        advocacy, and amplifying women's voices in global economic discourse.
-      </p>
+<p class="hero-intro">
+IEA-WE is a global initiative strengthening the presence and influence
+of women in the economics profession — through research, collaboration,
+advocacy, and amplifying women's voices in global economic discourse.
+</p>
 
-      <div class="buttons">
+<div class="buttons">
 
-        <a href="#work" class="button button-primary">
-          Explore our work →
-        </a>
+<a href="#work" class="button button-primary">
+Explore our work →
+</a>
 
-        <a href="about.html" class="button button-secondary">
-          About IEA-WE
-        </a>
+<a href="about.html" class="button button-secondary">
+About IEA-WE
+</a>
 
-      </div>
+</div>
 
-    </div>
-
-  </div>
-
+</div>
+</div>
 </section>
 
-
-<!-- =========================================================
-     LATEST FROM IEA-WE
-========================================================= -->
+<!-- LATEST FROM IEA-WE -->
 
 <section class="latest-feed">
 
-  <div class="latest-top">
+<div class="latest-top">
 
-    <div>
+<div>
 
-      <div class="latest-label">
-        Latest from IEA-WE
-      </div>
+<div class="latest-label">
+Latest from IEA-WE
+</div>
 
-      <h2>
-        Research, conversations & moments from the network.
-      </h2>
+<h2>
+Research, conversations & moments from the network.
+</h2>
 
-    </div>
+</div>
 
-    <p>
-      Catch up with the latest research, conversations, publications and
-      moments shaping the IEA-WE community.
-    </p>
+<p>
+Catch up with the latest research, conversations, publications and
+moments shaping the IEA-WE community.
+</p>
 
-  </div>
+</div>
 
+<div class="feed-window">
 
-  <div class="feed-window">
+<div class="feed-track">
 
-    <div class="feed-track">
+<div class="latest-card">
 
+<div class="latest-meta">
+Amplifying Voices · 2026
+</div>
 
-      <!-- CARD 1 -->
+<h3>
+Women economists shaping global economic discourse.
+</h3>
 
-      <a
-        href="https://cepr.org/voxeu/columns/high-speed-internet-and-early-childhood-development-causal-evidence"
-        target="_blank"
-        rel="noopener"
-        class="latest-card"
-      >
+<p>
+Explore the latest contributions from women economists across regions
+and disciplines.
+</p>
 
-        <div class="latest-meta">
-          ▣ Latest article · VoxEU
-        </div>
+<a href="articles.html" class="latest-link">
+Explore articles <span>→</span>
+</a>
 
-        <h3>
-          High-speed internet and early childhood development
-        </h3>
+</div>
 
-        <p>
-          New research examines the causal effects of a countrywide
-          high-speed internet programme on early childhood development.
-        </p>
+<div class="latest-card video-card">
 
-        <div class="latest-link">
-          Read the article <span>→</span>
-        </div>
+<div class="latest-meta">
+IEA Congress · Serbia 2026
+</div>
 
-      </a>
+<h3>
+IEA-WE at the IEA Congress.
+</h3>
 
+<p>
+Watch the latest presentation from the initiative's work and findings.
+</p>
 
-      <!-- CARD 2 -->
+<a
+href="https://youtu.be/aimEh15fkBM?si=43IebXTs25AMpo_J&t=1"
+target="_blank"
+rel="noopener"
+class="play-button"
+>
+▶
+</a>
 
-      <a
-        href="https://voxdev.org/topic/labour-markets/bridging-gap-women-export-led-growth"
-        target="_blank"
-        rel="noopener"
-        class="latest-card"
-      >
+</div>
 
-        <div class="latest-meta">
-          ◈ VoxDev · IEA-WE collaboration
-        </div>
+<div class="latest-card">
 
-        <h3>
-          Bridging the gap for women in export-led growth
-        </h3>
+<div class="latest-meta">
+Research · Evidence
+</div>
 
-        <p>
-          New evidence from India explores how export-led growth can improve
-          women's employment and wages — and why technology and skills matter.
-        </p>
+<h3>
+New evidence on women in economics.
+</h3>
 
-        <div class="latest-link">
-          Read on VoxDev <span>→</span>
-        </div>
+<p>
+Discover research examining barriers, interventions and pathways
+toward greater inclusion.
+</p>
 
-      </a>
+<a href="reports.html" class="latest-link">
+View research <span>→</span>
+</a>
 
+</div>
 
-      <!-- CARD 3 -->
+<div class="latest-card">
 
-      <a
-        href="https://www.imf.org/en/news/podcasts/all-podcasts/2024/11/29/power-of-local-marcela-eslava"
-        target="_blank"
-        rel="noopener"
-        class="latest-card"
-      >
+<div class="latest-meta">
+IEA-WE · Network
+</div>
 
-        <div class="latest-meta">
-          ♫ Podcast · IMF
-        </div>
+<h3>
+Building a more inclusive economics profession.
+</h3>
 
-        <h3>
-          The Power of Local
-        </h3>
+<p>
+Research, collaboration and advocacy across Africa, Asia and Latin
+America.
+</p>
 
-        <p>
-          Listen to Marcela Eslava discuss local economic development and
-          the importance of understanding economics close to home.
-        </p>
+<a href="about.html" class="latest-link">
+Learn more <span>→</span>
+</a>
 
-        <div class="latest-link">
-          Listen to the podcast <span>→</span>
-        </div>
+</div>
 
-      </a>
+<div class="latest-card">
 
+<div class="latest-meta">
+Amplifying Voices · 2026
+</div>
 
-      <!-- CARD 4 -->
+<h3>
+Women economists shaping global economic discourse.
+</h3>
 
-      <a
-        href="https://youtu.be/aimEh15fkBM?si=m1ws6HfnIoKiTkba"
-        target="_blank"
-        rel="noopener"
-        class="latest-card video-card"
-      >
+<p>
+Explore the latest contributions from women economists across regions
+and disciplines.
+</p>
 
-        <div class="latest-meta">
-          ● IEA Congress · June 2026
-        </div>
+<a href="articles.html" class="latest-link">
+Explore articles <span>→</span>
+</a>
 
-        <h3>
-          Women in Economics: Evidence, Interventions & Change
-        </h3>
+</div>
 
-        <p>
-          Watch the IEA-WE presentation from the International Economic
-          Association World Congress in Serbia.
-        </p>
+<div class="latest-card video-card">
 
-        <div class="latest-link">
-          Watch the presentation <span>→</span>
-        </div>
+<div class="latest-meta">
+IEA Congress · Serbia 2026
+</div>
 
-        <div class="play-button">
-          ▶
-        </div>
+<h3>
+IEA-WE at the IEA Congress.
+</h3>
 
-      </a>
+<p>
+Watch the latest presentation from the initiative's work and findings.
+</p>
 
+<a
+href="https://youtu.be/aimEh15fkBM?si=43IebXTs25AMpo_J&t=1"
+target="_blank"
+rel="noopener"
+class="play-button"
+>
+▶
+</a>
 
-      <!-- CARD 5 -->
+</div>
 
-      <a
-        href="reports.html"
-        class="latest-card"
-      >
+<div class="latest-card">
 
-        <div class="latest-meta">
-          ◇ Research · IEA-WE
-        </div>
+<div class="latest-meta">
+Research · Evidence
+</div>
 
-        <h3>
-          Evidence, interventions & what works
-        </h3>
+<h3>
+New evidence on women in economics.
+</h3>
 
-        <p>
-          Explore our growing research programme examining gender disparities
-          in economics and identifying strategies that can help close the gap.
-        </p>
+<p>
+Discover research examining barriers, interventions and pathways
+toward greater inclusion.
+</p>
 
-        <div class="latest-link">
-          Explore the research <span>→</span>
-        </div>
+<a href="reports.html" class="latest-link">
+View research <span>→</span>
+</a>
 
-      </a>
+</div>
 
+</div>
+</div>
 
-      <!-- DUPLICATE CARDS FOR SEAMLESS LOOP -->
-
-      <a
-        href="https://cepr.org/voxeu/columns/high-speed-internet-and-early-childhood-development-causal-evidence"
-        target="_blank"
-        rel="noopener"
-        class="latest-card"
-      >
-
-        <div class="latest-meta">
-          ▣ Latest article · VoxEU
-        </div>
-
-        <h3>
-          High-speed internet and early childhood development
-        </h3>
-
-        <p>
-          New research examines the causal effects of a countrywide
-          high-speed internet programme on early childhood development.
-        </p>
-
-        <div class="latest-link">
-          Read the article <span>→</span>
-        </div>
-
-      </a>
-
-
-      <a
-        href="https://voxdev.org/topic/labour-markets/bridging-gap-women-export-led-growth"
-        target="_blank"
-        rel="noopener"
-        class="latest-card"
-      >
-
-        <div class="latest-meta">
-          ◈ VoxDev · IEA-WE collaboration
-        </div>
-
-        <h3>
-          Bridging the gap for women in export-led growth
-        </h3>
-
-        <p>
-          New evidence from India explores how export-led growth can improve
-          women's employment and wages — and why technology and skills matter.
-        </p>
-
-        <div class="latest-link">
-          Read on VoxDev <span>→</span>
-        </div>
-
-      </a>
-
-
-      <a
-        href="https://www.imf.org/en/news/podcasts/all-podcasts/2024/11/29/power-of-local-marcela-eslava"
-        target="_blank"
-        rel="noopener"
-        class="latest-card"
-      >
-
-        <div class="latest-meta">
-          ♫ Podcast · IMF
-        </div>
-
-        <h3>
-          The Power of Local
-        </h3>
-
-        <p>
-          Listen to Marcela Eslava discuss local economic development and
-          the importance of understanding economics close to home.
-        </p>
-
-        <div class="latest-link">
-          Listen to the podcast <span>→</span>
-        </div>
-
-      </a>
-
-
-      <a
-        href="https://youtu.be/aimEh15fkBM?si=m1ws6HfnIoKiTkba"
-        target="_blank"
-        rel="noopener"
-        class="latest-card video-card"
-      >
-
-        <div class="latest-meta">
-          ● IEA Congress · June 2026
-        </div>
-
-        <h3>
-          Women in Economics: Evidence, Interventions & Change
-        </h3>
-
-        <p>
-          Watch the IEA-WE presentation from the International Economic
-          Association World Congress in Serbia.
-        </p>
-
-        <div class="latest-link">
-          Watch the presentation <span>→</span>
-        </div>
-
-        <div class="play-button">
-          ▶
-        </div>
-
-      </a>
-
-
-      <a
-        href="reports.html"
-        class="latest-card"
-      >
-
-        <div class="latest-meta">
-          ◇ Research · IEA-WE
-        </div>
-
-        <h3>
-          Evidence, interventions & what works
-        </h3>
-
-        <p>
-          Explore our growing research programme examining gender disparities
-          in economics and identifying strategies that can help close the gap.
-        </p>
-
-        <div class="latest-link">
-          Explore the research <span>→</span>
-        </div>
-
-      </a>
-
-
-    </div>
-
-  </div>
-
-
-  <div class="feed-note">
-    Hover over a card to pause · Click to explore
-  </div>
+<div class="feed-note">
+Hover to pause
+</div>
 
 </section>
 
+<!-- COMPACT SECTIONS -->
 
-<!-- =========================================================
-     COMPACT SECTIONS
-========================================================= -->
+<section class="compact-sections" id="work">
 
-<section class="compact-sections">
+<!-- 01 -->
 
+<section class="compact-section">
 
-  <!-- WHY THIS MATTERS -->
+<div class="compact-trigger">
 
-  <section class="compact-section">
-
-    <div class="compact-trigger">
-
-      <div class="compact-number">
-        01
-      </div>
-
-      <div class="compact-title">
-        Why this matters
-      </div>
-
-      <div class="compact-arrow">
-        →
-      </div>
-
-    </div>
-
-    <div class="compact-content">
-
-      <div class="why-content">
-
-        <div>
-
-          <h3>
-            A stronger economics profession starts with inclusion.
-          </h3>
-
-        </div>
-
-        <div class="why-copy">
-
-          <p>
-            Economics shapes how we understand governments, markets, and public
-            policy — yet women remain underrepresented, particularly in leadership
-            roles. These disparities deepen across race, ethnicity, and geography,
-            with women from developing countries often facing a double disadvantage.
-          </p>
-
-          <p>
-            IEA-WE takes an intersectional approach, examining how gender
-            intersects with race, caste, and region to identify patterns of
-            multiple disadvantage.
-          </p>
-
-          <div class="why-highlight">
-
-            <strong>
-              Diversity strengthens the discipline.
-            </strong>
-
-            <p>
-              Greater inclusion isn't only a matter of fairness — diverse
-              perspectives lead to richer analysis, more innovative solutions,
-              and better-functioning societies.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="community">
-
-        <strong>
-          A global community of women economists.
-        </strong>
-
-        <span>
-          Across Africa, Asia and Latin America, IEA-WE connects researchers,
-          policymakers, and institutions working to strengthen women's
-          participation and influence in economics.
-        </span>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- OUR WORK -->
-
-  <section class="compact-section" id="work">
-
-    <div class="compact-trigger">
-
-      <div class="compact-number">
-        02
-      </div>
-
-      <div class="compact-title">
-        Our work
-      </div>
-
-      <div class="compact-arrow">
-        →
-      </div>
-
-    </div>
-
-    <div class="compact-content">
-
-      <div class="work-content">
-
-
-        <div class="work-card">
-
-          <div class="work-number">
-            01 — Quantitative Research
-          </div>
-
-          <h3>
-            Building the evidence base.
-          </h3>
-
-          <p>
-            Six evidence studies — across Argentina, Colombia, Ghana, India,
-            Mexico and South Africa — have been completed and published,
-            building a comprehensive foundation for understanding the
-            structural barriers women economists face.
-          </p>
-
-          <p>
-            Alongside this, eleven intervention projects are underway testing
-            practical strategies to close the gender gap and grow the number of
-            women who choose economics as a field of study and career.
-          </p>
-
-          <a href="reports.html">
-            Explore the research →
-          </a>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-number">
-            02 — Qualitative Research
-          </div>
-
-          <h3>
-            Understanding women's experiences.
-          </h3>
-
-          <p>
-            In-depth interviews and focus groups tracking women economists'
-            experience over time, in their own words. 220 in-depth interviews
-            and 100+ focus group discussions completed so far, led by Monica
-            Biradavolu of QualAnalytics.
-          </p>
-
-          <a href="https://iea-we.github.io/reports.html#qualitative-research">
-            Explore the research →
-          </a>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-number">
-            03 — Amplifying Women's Voices
-          </div>
-
-          <h3>
-            Making research heard.
-          </h3>
-
-          <p>
-            Over 100 articles by 120+ women economists from 30 countries have
-            reached a global audience of 18 million+, through partnerships with
-            Project Syndicate, VoxEU, and VoxDev.
-          </p>
-
-          <a href="articles.html">
-            Explore Amplifying Voices →
-          </a>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-number">
-            04 — Building Regional Networks
-          </div>
-
-          <h3>
-            Strengthening networks.
-          </h3>
-
-          <p>
-            We partner with professional associations and regional networks —
-            including Women in Economics in Latin America & the Caribbean
-            (WELAC) — to strengthen institutional support for women economists.
-          </p>
-
-          <a href="https://iea-we.github.io/welac.html">
-            Learn more →
-          </a>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- AMPLIFYING VOICES -->
-
-  <section class="compact-section">
-
-    <div class="compact-trigger">
-
-      <div class="compact-number">
-        03
-      </div>
-
-      <div class="compact-title">
-        Amplifying Women's Voices
-      </div>
-
-      <div class="compact-arrow">
-        →
-      </div>
-
-    </div>
-
-    <div class="compact-content">
-
-      <div class="amplifying-content">
-
-        <div class="amplifying-copy">
-
-          <h3>
-            Making research heard.
-          </h3>
-
-          <p>
-            Through the Amplifying Voices Project, IEA-WE works with women
-            economists across Africa, Asia, and Latin America and the Caribbean
-            to bring research into global policy conversations.
-          </p>
-
-          <div class="amplifying-button">
-
-            <a href="articles.html" class="button button-primary">
-              Explore Amplifying Voices →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="stats">
-
-          <div class="stat">
-
-            <div class="stat-number">~100</div>
-
-            <div class="stat-label">
-              Policy-relevant articles
-            </div>
-
-          </div>
-
-          <div class="stat">
-
-            <div class="stat-number">30</div>
-
-            <div class="stat-label">
-              Countries represented
-            </div>
-
-          </div>
-
-          <div class="stat">
-
-            <div class="stat-number">18M+</div>
-
-            <div class="stat-label">
-              Global audience reach
-            </div>
-
-          </div>
-
-          <div class="stat">
-
-            <div class="stat-number">2</div>
-
-            <div class="stat-label">
-              Podcast partnerships
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- LATEST ARTICLES -->
-
-  <section class="compact-section">
-
-    <div class="compact-trigger">
-
-      <div class="compact-number">
-        04
-      </div>
-
-      <div class="compact-title">
-        Latest articles
-      </div>
-
-      <div class="compact-arrow">
-        →
-      </div>
-
-    </div>
-
-    <div class="compact-content">
-
-      <div class="articles-content">
-
-        <div class="articles-intro">
-
-          <h3>
-            Amplifying Voices
-          </h3>
-
-          <p>
-            Explore the latest policy-relevant research and commentary from
-            women economists in the IEA-WE network.
-          </p>
-
-          <a href="https://iea-we.github.io/articles.html#archive" class="read-more">
-            Explore all articles →
-          </a>
-
-        </div>
-
-
-        <div class="article-grid" id="latest-articles">
-          <!-- Latest articles loaded automatically -->
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- REPORTS -->
-
-  <section class="compact-section">
-
-    <div class="compact-trigger">
-
-      <div class="compact-number">
-        05
-      </div>
-
-      <div class="compact-title">
-        Research & reports
-      </div>
-
-      <div class="compact-arrow">
-        →
-      </div>
-
-    </div>
-
-    <div class="compact-content">
-
-      <div class="reports-content">
-
-        <div>
-
-          <h3>
-            Evidence for a more inclusive economics profession.
-          </h3>
-
-          <p>
-            Explore IEA-WE's research, evidence papers, intervention studies
-            and reports examining gender inequality in economics and
-            identifying what works.
-          </p>
-
-        </div>
-
-        <div class="report-side">
-
-          <strong>
-            Explore our research
-          </strong>
-
-          <p>
-            Browse completed evidence papers, reports and research from
-            across Latin America, Africa and Asia.
-          </p>
-
-          <a
-            href="reports.html"
-            class="button button-primary"
-            style="margin-top:20px;"
-          >
-            View reports →
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-
-  <section class="compact-section">
-
-    <div class="compact-trigger">
-
-      <div class="compact-number">
-        06
-      </div>
-
-      <div class="compact-title">
-        About IEA-WE
-      </div>
-
-      <div class="compact-arrow">
-        →
-      </div>
-
-    </div>
-
-    <div class="compact-content">
-
-      <div class="about-content">
-
-        <div>
-
-          <h3>
-            Advancing equity and excellence in economics.
-          </h3>
-
-        </div>
-
-        <div class="about-copy">
-
-          <p>
-            The International Economic Association launched IEA-WE as a
-            multi-year global initiative to strengthen the presence and
-            influence of women in the economics profession.
-          </p>
-
-          <p>
-            Through research, collaboration and advocacy, the initiative
-            works to expand the pipeline of women economists, remove
-            structural barriers to their advancement, and amplify their
-            voices in shaping global economic discourse.
-          </p>
-
-          <a href="about.html" class="read-more">
-            About IEA-WE →
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- TEAM -->
-
-  <section class="compact-section">
-
-    <div class="compact-trigger">
-
-      <div class="compact-number">
-        07
-      </div>
-
-      <div class="compact-title">
-        Team
-      </div>
-
-      <div class="compact-arrow">
-        →
-      </div>
-
-    </div>
-
-    <div class="compact-content">
-
-      <div class="leadership-content">
-
-        <div class="leadership-intro">
-
-          <h3>
-            A global network committed to changing economics.
-          </h3>
-
-          <p>
-            IEA-WE brings together leading economists and scholars working
-            across regions and disciplines to advance women's participation
-            and influence in economics.
-          </p>
-
-        </div>
-
-
-        <div class="leadership-title">
-          Initiative Leadership
-        </div>
-
-        <div class="people-grid">
-
-          
-<div class="person">
-  <h4>
-    <a href="https://www.ashoka.edu.in/profile/ashwini-deshpande/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Ashwini Deshpande
-    </a>
-  </h4>
-  <p>Ashoka University</p>
+<div class="compact-number">
+01
 </div>
 
-<div class="person">
-  <h4>
-    <a href="https://inesberniell.weebly.com/"
-       target="_blank"
-       rel="noopener noreferrer">
-      María Inés Berniell
-    </a>
-  </h4>
-  <p>Universidad Nacional de La Plata</p>
+<div class="compact-title">
+Why this matters
 </div>
 
-<div class="person">
-  <h4>
-    <a href="https://sites.google.com/site/raquelfernandezsite/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Raquel Fernández
-    </a>
-  </h4>
-  <p>NYU</p>
+<div class="compact-arrow">
+→
 </div>
 
-<div class="person">
-  <h4>
-    <a href="https://drodrik.scholars.harvard.edu/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Dani Rodrik
-    </a>
-  </h4>
-  <p>Harvard University</p>
 </div>
 
-<div class="person">
-  <h4>
-    <a href="https://unu.edu/merit/about/fiona-tregenna"
-       target="_blank"
-       rel="noopener noreferrer">
-      Fiona Tregenna
-    </a>
-  </h4>
-  <p>University of Johannesburg</p>
+<div class="compact-content">
+
+<div class="why-content">
+
+<div>
+
+<h3>
+Economics works better when women are part of shaping it.
+</h3>
+
 </div>
 
-        </div>
+<div class="why-copy">
 
+<p>
+Women remain underrepresented across economics — from undergraduate
+study and graduate training to senior academic, policy and leadership
+positions.
+</p>
 
-        <div class="leadership-title">
-          Qualitative Research Lead
-        </div>
+<p>
+IEA-WE examines the structural barriers behind this gap and supports
+evidence-based approaches to creating a more inclusive profession.
+</p>
 
-        <div class="people-grid">
+<div class="why-highlight">
 
-<div class="person">
-  <h4>
-    <a href="https://www.qualanalytics.com/about/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Monica Biradavolu
-    </a>
-  </h4>
-  <p>QualAnalytics</p>
+<strong>
+A more diverse economics profession benefits everyone.
+</strong>
+
+<span>
+Different perspectives strengthen research, policy and the questions
+economists ask.
+</span>
+
 </div>
 
-        </div>
+<div class="community">
 
+<strong>
+A global challenge requires a global response.
+</strong>
 
-        <div class="leadership-title">
-          Project Team
-        </div>
+<span>
+IEA-WE brings together economists, researchers and institutions across
+regions to understand what works.
+</span>
 
-        <div class="people-grid">
-
-<div class="person">
-  <h4>
-    <a href="https://www.iea-world.org/contact/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Andrea Cavallo
-    </a>
-  </h4>
-  <p>International Economic Association</p>
 </div>
 
- <div class="person">
-  <h4>
-    <a href="https://www.linkedin.com/in/navika-m-5a3071a5/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Navika Mehta
-    </a>
-  </h4>
-  <p>International Economic Association</p>
 </div>
 
-        </div>
-
-
-        <div class="leadership-title">
-          Advisory Board
-        </div>
-
-        <div class="people-grid">
-
-<div class="person">
-  <h4>
-    <a href="https://www.radhikabalakrishnan.net/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Radhika Balakrishnan
-    </a>
-  </h4>
-  <p>Rutgers University</p>
 </div>
 
-<div class="person">
-  <h4>
-    <a href="https://www.chicagobooth.edu/faculty/directory/b/marianne-bertrand"
-       target="_blank"
-       rel="noopener noreferrer">
-      Marianne Bertrand
-    </a>
-  </h4>
-  <p>University of Chicago</p>
 </div>
-
-<div class="person">
-  <h4>
-    <a href="https://sites.google.com/site/wendycarlinucl/home"
-       target="_blank"
-       rel="noopener noreferrer">
-      Wendy Carlin
-    </a>
-  </h4>
-  <p>University College London</p>
-</div>
-
-<div class="person">
-  <h4>
-    <a href="https://sites.google.com/view/marcela-eslava/home"
-       target="_blank"
-       rel="noopener noreferrer">
-      Marcela Eslava
-    </a>
-  </h4>
-  <p>Universidad de los Andes</p>
-</div>
-
-<div class="person">
-  <h4>
-    <a href="https://economics.yale.edu/people/rohini-pande"
-       target="_blank"
-       rel="noopener noreferrer">
-      Rohini Pande
-    </a>
-  </h4>
-  <p>Yale University</p>
-</div>
-
-        </div>
-
-
-        <div style="margin-top:20px;">
-
-          <a href="leadership.html" class="read-more">
-            Meet the full team →
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
 
 </section>
 
+<!-- 02 -->
+
+<section class="compact-section">
+
+<div class="compact-trigger">
+
+<div class="compact-number">
+02
+</div>
+
+<div class="compact-title">
+Our work
+</div>
+
+<div class="compact-arrow">
+→
+</div>
+
+</div>
+
+<div class="compact-content">
+
+<div class="work-content">
+
+<div class="work-card">
+
+<div class="work-number">
+01 · QUANTITATIVE
+</div>
+
+<h3>
+Measuring the gaps.
+</h3>
+
+<p>
+Large-scale quantitative research examines women's participation,
+career progression and representation across economics.
+</p>
+
+<a href="reports.html">
+Explore findings →
+</a>
+
+</div>
+
+<div class="work-card">
+
+<div class="work-number">
+02 · QUALITATIVE
+</div>
+
+<h3>
+Understanding experiences.
+</h3>
+
+<p>
+Qualitative research explores the experiences, barriers and pathways
+that shape women's careers in economics.
+</p>
+
+<a href="reports.html">
+Explore findings →
+</a>
+
+</div>
+
+<div class="work-card">
+
+<div class="work-number">
+03 · AMPLIFYING VOICES
+</div>
+
+<h3>
+Changing who gets heard.
+</h3>
+
+<p>
+Amplifying Voices creates opportunities for women economists to share
+their research and ideas with global audiences.
+</p>
+
+<a href="articles.html">
+Explore the programme →
+</a>
+
+</div>
+
+<div class="work-card">
+
+<div class="work-number">
+04 · NETWORK
+</div>
+
+<h3>
+Building connections.
+</h3>
+
+<p>
+IEA-WE connects researchers, institutions and economists across regions
+to strengthen collaboration and collective action.
+</p>
+
+<a href="leadership.html">
+Meet the team →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- 03 -->
+
+<section class="compact-section">
+
+<div class="compact-trigger">
+
+<div class="compact-number">
+03
+</div>
+
+<div class="compact-title">
+Amplifying Voices
+</div>
+
+<div class="compact-arrow">
+→
+</div>
+
+</div>
+
+<div class="compact-content">
+
+<div class="amplifying-content">
+
+<div class="amplifying-copy">
+
+<h3>
+Making women's economic research visible.
+</h3>
+
+<p>
+Amplifying Voices supports women economists in sharing their research,
+ideas and perspectives with wider global audiences through high-quality
+policy and public-facing writing.
+</p>
+
+<div class="amplifying-button">
+
+<a href="articles.html" class="button button-primary">
+Explore Amplifying Voices →
+</a>
+
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+100+
+</div>
+
+<div class="stat-label">
+Articles published
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+120+
+</div>
+
+<div class="stat-label">
+Women economists
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+30
+</div>
+
+<div class="stat-label">
+Countries represented
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+97%
+</div>
+
+<div class="stat-label">
+Global South authors
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- 04 -->
+
+<section class="compact-section">
+
+<div class="compact-trigger">
+
+<div class="compact-number">
+04
+</div>
+
+<div class="compact-title">
+Latest articles
+</div>
+
+<div class="compact-arrow">
+→
+</div>
+
+</div>
+
+<div class="compact-content">
+
+<div class="articles-content">
+
+<div class="articles-intro">
+
+<h3>
+Ideas from women economists around the world.
+</h3>
+
+<p>
+Read the latest contributions from the IEA-WE network, covering
+development, labour markets, gender, climate, trade and more.
+</p>
+
+<a href="articles.html#archive" class="read-more">
+Browse all articles →
+</a>
+
+</div>
+
+<div class="article-grid" id="latest-articles">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- 05 -->
+
+<section class="compact-section">
+
+<div class="compact-trigger">
+
+<div class="compact-number">
+05
+</div>
+
+<div class="compact-title">
+Research & reports
+</div>
+
+<div class="compact-arrow">
+→
+</div>
+
+</div>
+
+<div class="compact-content">
+
+<div class="reports-content">
+
+<div>
+
+<h3>
+Evidence for a more inclusive economics profession.
+</h3>
+
+<p>
+Explore IEA-WE's research, evidence papers, intervention studies
+and reports examining gender inequality in economics and
+identifying what works.
+</p>
+
+</div>
+
+<div class="report-side">
+
+<strong>
+Explore our research
+</strong>
+
+<p>
+Browse completed evidence papers, reports and research from
+across Latin America, Africa and Asia.
+</p>
+
+<a
+href="reports.html"
+class="button button-primary"
+style="margin-top:20px;"
+>
+View reports →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- 06 -->
+
+<section class="compact-section">
+
+<div class="compact-trigger">
+
+<div class="compact-number">
+06
+</div>
+
+<div class="compact-title">
+About IEA-WE
+</div>
+
+<div class="compact-arrow">
+→
+</div>
+
+</div>
+
+<div class="compact-content">
+
+<div class="about-content">
+
+<div>
+
+<h3>
+Advancing equity and excellence in economics.
+</h3>
+
+</div>
+
+<div class="about-copy">
+
+<p>
+The International Economic Association launched IEA-WE as a
+multi-year global initiative to strengthen the presence and
+influence of women in the economics profession.
+</p>
+
+<p>
+Through research, collaboration and advocacy, the initiative
+works to expand the pipeline of women economists, remove
+structural barriers to their advancement, and amplify their
+voices in shaping global economic discourse.
+</p>
+
+<a href="about.html" class="read-more">
+About IEA-WE →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- 07 -->
+
+<section class="compact-section">
+
+<div class="compact-trigger">
+
+<div class="compact-number">
+07
+</div>
+
+<div class="compact-title">
+Team
+</div>
+
+<div class="compact-arrow">
+→
+</div>
+
+</div>
+
+<div class="compact-content">
+
+<div class="leadership-content">
+
+<div class="leadership-intro">
+
+<h3>
+A global network committed to changing economics.
+</h3>
+
+<p>
+IEA-WE brings together leading economists and scholars working
+across regions and disciplines to advance women's participation
+and influence in economics.
+</p>
+
+</div>
+
+<div class="leadership-title">
+Initiative Leadership
+</div>
+
+<div class="people-grid">
+
+<div class="person">
+<h4>
+<a href="https://www.ashoka.edu.in/profile/ashwini-deshpande/"
+target="_blank"
+rel="noopener noreferrer">
+Ashwini Deshpande
+</a>
+</h4>
+<p>Ashoka University</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://inesberniell.weebly.com/"
+target="_blank"
+rel="noopener noreferrer">
+María Inés Berniell
+</a>
+</h4>
+<p>Universidad Nacional de La Plata</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://sites.google.com/site/raquelfernandezsite/"
+target="_blank"
+rel="noopener noreferrer">
+Raquel Fernández
+</a>
+</h4>
+<p>NYU</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://drodrik.scholars.harvard.edu/"
+target="_blank"
+rel="noopener noreferrer">
+Dani Rodrik
+</a>
+</h4>
+<p>Harvard University</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://unu.edu/merit/about/fiona-tregenna"
+target="_blank"
+rel="noopener noreferrer">
+Fiona Tregenna
+</a>
+</h4>
+<p>University of Johannesburg</p>
+</div>
+
+</div>
+
+<div class="leadership-title">
+Qualitative Research Lead
+</div>
+
+<div class="people-grid">
+
+<div class="person">
+<h4>
+<a href="https://www.qualanalytics.com/about/"
+target="_blank"
+rel="noopener noreferrer">
+Monica Biradavolu
+</a>
+</h4>
+<p>QualAnalytics</p>
+</div>
+
+</div>
+
+<div class="leadership-title">
+Project Team
+</div>
+
+<div class="people-grid">
+
+<div class="person">
+<h4>
+<a href="https://www.iea-world.org/contact/"
+target="_blank"
+rel="noopener noreferrer">
+Andrea Cavallo
+</a>
+</h4>
+<p>International Economic Association</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://www.linkedin.com/in/navika-m-5a3071a5/"
+target="_blank"
+rel="noopener noreferrer">
+Navika Mehta
+</a>
+</h4>
+<p>International Economic Association</p>
+</div>
+
+</div>
+
+<div class="leadership-title">
+Advisory Board
+</div>
+
+<div class="people-grid">
+
+<div class="person">
+<h4>
+<a href="https://www.radhikabalakrishnan.net/"
+target="_blank"
+rel="noopener noreferrer">
+Radhika Balakrishnan
+</a>
+</h4>
+<p>Rutgers University</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://www.chicagobooth.edu/faculty/directory/b/marianne-bertrand"
+target="_blank"
+rel="noopener noreferrer">
+Marianne Bertrand
+</a>
+</h4>
+<p>University of Chicago</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://sites.google.com/site/wendycarlinucl/home"
+target="_blank"
+rel="noopener noreferrer">
+Wendy Carlin
+</a>
+</h4>
+<p>University College London</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://sites.google.com/view/marcela-eslava/home"
+target="_blank"
+rel="noopener noreferrer">
+Marcela Eslava
+</a>
+</h4>
+<p>Universidad de los Andes</p>
+</div>
+
+<div class="person">
+<h4>
+<a href="https://economics.yale.edu/people/rohini-pande"
+target="_blank"
+rel="noopener noreferrer">
+Rohini Pande
+</a>
+</h4>
+<p>Yale University</p>
+</div>
+
+</div>
+
+<div style="margin-top:20px;">
+
+<a href="leadership.html" class="read-more">
+Meet the full team →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</section>
 
 </main>
 
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- FOOTER -->
 
 <footer>
 
-  <div class="container">
+<div class="container">
 
-    <div class="footer-grid">
+<div class="footer-grid">
 
-      <div>
+<div>
 
-        <div class="footer-brand">
-          IEA-WE
-        </div>
+<div class="footer-brand">
+IEA-WE
+</div>
 
-        <p>
-          Strengthening the presence and influence of women in economics.
-        </p>
+<p>
+Strengthening the presence and influence of women in economics.
+</p>
 
-      </div>
+</div>
 
+<div>
 
-      <div>
+<h4>
+Explore
+</h4>
 
-        <h4>
-          Explore
-        </h4>
+<div class="footer-links">
 
-        <div class="footer-links">
+<a href="articles.html">
+Amplifying Voices
+</a>
 
+<a href="leadership.html">
+Team
+</a>
 
-          <a href="articles.html">
-            Amplifying Voices
-          </a>
+<a href="https://iea-we.github.io/articles.html#archive">
+Latest Articles
+</a>
 
-          <a href="leadership.html">
-            Team
-          </a>
+<a href="reports.html">
+Reports
+</a>
 
-          <a href="https://iea-we.github.io/articles.html#archive">Latest Articles</a>
+<a href="welac.html">
+WELAC
+</a>
 
+</div>
 
-          <a href="reports.html">
-            Reports
-          </a>
+</div>
 
-          <a href="welac.html">
-            WELAC
-          </a>
+<div>
 
-        </div>
+<h4>
+IEA-WE
+</h4>
 
-      </div>
+<div class="footer-links">
 
+<a href="about.html">
+About
+</a>
 
-      <div>
+<a href="leadership.html">
+Advisory Board
+</a>
 
-        <h4>
-          IEA-WE
-        </h4>
+<a
+href="https://welac-lacea.com/"
+target="_blank"
+rel="noopener"
+>
+WELAC Website
+</a>
 
-        <div class="footer-links">
+</div>
 
-          <a href="about.html">
-            About
-          </a>
+</div>
 
-          <a href="leadership.html">
-            Advisory Board
-          </a>
+</div>
 
-          <a
-            href="https://welac-lacea.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            WELAC Website
-          </a>
+<div class="footer-bottom">
+©2023 International Economic Association — Women in Economics Initiative (IEA-WE)
+</div>
 
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-      ©2023 International Economic Association — Women in Economics Initiative (IEA-WE)
-    </div>
-
-  </div>
+</div>
 
 </footer>
-
 
 <script src="articles-data.js"></script>
 
 <script>
 
-  const latestArticlesContainer =
-    document.getElementById("latest-articles");
+const latestArticlesContainer =
+document.getElementById("latest-articles");
 
-  if (latestArticlesContainer && window.articles) {
+if (latestArticlesContainer && window.articles) {
 
-    const latestArticles = [...window.articles]
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .slice(0, 3);
+const latestArticles = [...window.articles]
+.sort((a,b) => new Date(b.date) - new Date(a.date))
+.slice(0,3);
 
-    latestArticlesContainer.innerHTML = latestArticles.map(article => `
+latestArticlesContainer.innerHTML = latestArticles.map(article => `
 
-      <article class="article-card">
+<article class="article-card">
 
-        <div class="article-content">
+<div class="article-content">
 
-          <div class="article-meta">
-            ${article.topic} · ${article.year}
-          </div>
+<div class="article-meta">
+${article.topic} · ${article.year}
+</div>
 
-          <h3>
-            ${article.title}
-          </h3>
+<h3>
+${article.title}
+</h3>
 
-          <p>
-            ${article.authors}
-          </p>
+<p>
+${article.authors}
+</p>
 
-          <a
-            href="${article.url}"
-            class="read-more"
-            target="_blank"
-            rel="noopener"
-          >
-            Read more →
-          </a>
+<a
+href="${article.url}"
+class="read-more"
+target="_blank"
+rel="noopener"
+>
+Read more →
+</a>
 
-        </div>
+</div>
 
-      </article>
+</article>
 
-    `).join("");
+`).join("");
 
-  }
+}
 
 </script>
 
+<!-- MOBILE SECTION TAP FIX -->
 
-<!-- =========================================================
-     FLOATING IEA CONGRESS VIDEO
-========================================================= -->
+<script>
+document.querySelectorAll('.compact-section').forEach(section => {
+
+const trigger = section.querySelector('.compact-trigger');
+
+if (trigger) {
+
+trigger.addEventListener('click', () => {
+
+if (window.innerWidth <= 600) {
+section.classList.toggle('active');
+}
+
+});
+
+}
+
+});
+</script>
+
+<!-- FLOATING IEA CONGRESS VIDEO -->
 
 <a
-  href="https://youtu.be/aimEh15fkBM?si=43IebXTs25AMpo_J&t=1"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="floating-video"
+href="https://youtu.be/aimEh15fkBM?si=43IebXTs25AMpo_J&t=1"
+target="_blank"
+rel="noopener noreferrer"
+class="floating-video"
 >
 
-  <span class="floating-video-icon">
-    ▶
-  </span>
+<span class="floating-video-icon">
+▶
+</span>
 
-  <span class="floating-video-text">
+<span class="floating-video-text">
 
-    <strong>
-      Watch the presentation
-    </strong>
+<strong>
+Watch the presentation
+</strong>
 
-    <small>
-      IEA Congress · Serbia 2026
-    </small>
+<small>
+IEA Congress · Serbia 2026
+</small>
 
-  </span>
+</span>
 
-  <span class="floating-video-close">
-    ×
-  </span>
+<span class="floating-video-close">
+×
+</span>
 
 </a>
 
-
 </body>
-
 </html>
