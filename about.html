@@ -68,6 +68,12 @@
       gap: 30px;
     }
 
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
     .logo img {
       width: 190px;
       height: auto;
@@ -333,15 +339,45 @@
     @media (max-width: 600px) {
 
       .container {
-        width: 88%;
+        width: 90%;
       }
 
-      nav {
-        display: none;
+      /* MOBILE NAVIGATION — SAME AS HOMEPAGE */
+
+      .nav {
+        min-height: 70px;
+        gap: 12px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
       }
 
       .logo img {
-        width: 155px;
+        width: 145px;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: calc(100vw - 170px);
+        flex-shrink: 1;
+      }
+
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      nav a {
+        flex-shrink: 0;
+        font-size: 11px;
       }
 
       .page-hero {
@@ -395,8 +431,8 @@
 
   <div class="container nav">
 
-    <a href="index.html">
-      <img src="logoWE.svg" alt="IEA-WE" style="width:190px;">
+    <a href="index.html" class="logo">
+      <img src="logoWE.svg" alt="IEA-WE">
     </a>
 
     <nav>
